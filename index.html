@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Guide to the Barbados Medical Products Authority stakeholder consultation on the draft Medical Products and Clinical Trial Regulations, 20 October 2026.">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}body{margin:0}</style>
 </head>
 <body>
 <title>BMPA Stakeholder Consultation</title>
@@ -45,7 +45,7 @@ h2{font-size:clamp(1.5rem,3.2vw,2.05rem);letter-spacing:-.01em}
 h3{font-size:1.12rem}
 h4{font-size:1rem}
 p{margin:0}
-.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1320px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .eyebrow{font-family:var(--f-display);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink)}
 .ref{font-family:var(--f-mono);font-size:.72rem;background:var(--navy-wash);color:var(--navy-text);border-radius:5px;padding:1px 6px;white-space:nowrap}
 .muted{color:var(--muted)}
@@ -54,14 +54,31 @@ button,select,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
 /* header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:14px;min-height:60px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(1,30,80,.03)}
+.top .wrap{display:flex;align-items:center;gap:12px;min-height:62px;padding-block:6px}
 .brand{display:flex;align-items:center;flex:none;background:#fff;border-radius:8px;padding:4px 8px}
 .brand img{height:34px;width:auto;display:block}
-.nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
-.nav::-webkit-scrollbar{display:none}
-.nav a{padding:8px 11px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-size:.9rem;font-weight:600;white-space:nowrap}
-.nav a:hover{background:var(--navy-wash);color:var(--navy-text)}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 2px;flex:1;min-width:0}
+.nav a{padding:6px 9px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-size:.86rem;font-weight:600;white-space:nowrap}
+.nav a:hover,.nav a:focus-visible{background:var(--navy-wash);color:var(--navy-text)}
+.nav .only-menu{display:none}
+.hdr-cta{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+.menu-btn{display:none;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;font-family:var(--f-display);font-weight:600;font-size:.88rem;cursor:pointer;color:var(--ink)}
+.menu-btn .bars{width:16px;height:2px;background:currentColor;position:relative;display:inline-block}
+.menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:16px;height:2px;background:currentColor}
+.menu-btn .bars::before{top:-5px}.menu-btn .bars::after{top:5px}
+.menu-btn[aria-expanded="true"] .bars{background:transparent}
+.menu-btn[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
+@media (max-width:1180px){
+  .menu-btn{display:inline-flex}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(1,30,80,.12);padding:10px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;max-height:calc(100vh - 80px);overflow-y:auto}
+  .nav.open{display:grid}
+  .nav a{padding:11px 12px;font-size:.95rem;white-space:normal;background:var(--paper)}
+  .nav .only-menu{display:block}
+}
+@media (max-width:640px){.nav{grid-template-columns:repeat(2,minmax(0,1fr))}.hide-xs{display:none}}
+@media (max-width:360px){.nav{grid-template-columns:minmax(0,1fr)}}
 
 /* hero */
 .hero{background:var(--card);position:relative;padding-block:44px 0}
@@ -123,6 +140,18 @@ section.alt .panel{background:var(--paper)}
 .st-reg{background:var(--flag-wash);color:var(--flag)}
 .rg p{font-size:.91rem;color:var(--ink-2)}
 @media (max-width:880px){.chain{grid-template-columns:minmax(0,1fr)}.link:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-12px;transform:translate(50%,50%)}}
+
+/* faq */
+.fq{border:1px solid var(--line);border-radius:10px;background:var(--card);margin-bottom:8px}
+.fq summary{cursor:pointer;list-style:none;padding:13px 16px;display:grid;gap:6px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary b{font-family:var(--f-display);font-weight:600;font-size:1rem;line-height:1.35}
+.fq .tags{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.fq .body{padding:0 16px 14px;display:grid;gap:10px}
+.fq .ans{display:grid;gap:4px;border-left:3px solid var(--line);padding-left:12px}
+.fq .ans p{font-size:.96rem;color:var(--ink-2)}
+.fq .ans.prelim{border-color:var(--gsm)} .fq .ans.draft{border-color:var(--navy)} .fq .ans.who{border-color:var(--gold)} .fq .ans.open{border-color:var(--flag)}
+.fq[open]{box-shadow:0 2px 10px rgba(1,30,80,.06)}
 
 /* chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -278,11 +307,44 @@ footer .wrap{display:grid;gap:10px}
 footer .fl{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 footer .brand{padding:6px 10px}
 
+.fab{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:8px;background:var(--gold);color:#0b1f45;border-radius:999px;padding:11px 16px;font-family:var(--f-display);font-weight:700;font-size:.88rem;text-decoration:none;box-shadow:0 6px 20px rgba(1,30,80,.25)}
+.fab svg{width:18px;height:18px}
+@media (min-width:1500px){body{font-size:18px}}
 @media (max-width:880px){
   .hero-grid,.two,.contact-grid{grid-template-columns:minmax(0,1fr)}
   .row2,.calc{grid-template-columns:minmax(0,1fr)}
   .ag{grid-template-columns:76px minmax(0,1fr)}
   .ag .go,.ag .tag{grid-column:2}
+  .hero{padding-block:28px 0}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  section.s{padding-block:40px}
+  .s-head{margin-bottom:20px}
+  .logo-plate img{width:210px}
+  .logo-plate{margin-bottom:16px}
+  .hero .lede{font-size:1rem}
+  .ctas .btn{flex:1 1 auto;justify-content:center}
+  .facts{padding:16px}
+  .panel{padding:16px}
+  .duties li{grid-template-columns:minmax(0,1fr);gap:6px}
+  .duties li .ref{justify-self:start}
+  .ref{white-space:normal}
+  .ag{grid-template-columns:minmax(0,1fr);gap:6px}
+  .ag .go,.ag .tag{grid-column:1;justify-self:start}
+  .chain{grid-template-columns:minmax(0,1fr)}
+  .regs{grid-template-columns:minmax(0,1fr)}
+  .ml li{grid-template-columns:52px minmax(0,1fr);gap:10px}
+  .chat{height:76vh;min-height:420px}
+  .composer .btn{padding:10px 14px}
+  details.part summary{flex-wrap:wrap}
+  details.part summary small{margin-left:26px}
+  details.part ul{padding-left:30px}
+  .tier{grid-template-columns:50px minmax(0,1fr)}
+  .wa-float span.long{display:none}
+  .fab{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+  .chips{gap:6px}
+  .chip{padding:6px 12px;font-size:.86rem}
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
@@ -299,20 +361,27 @@ footer .brand{padding:6px 10px}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="BMPA consultation, back to top"><img src="data:image/webp;base64,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" alt="BMPA" width="110" height="38"></a>
-    <nav class="nav" aria-label="Sections">
+    <nav class="nav" id="nav" aria-label="Sections">
       <a href="#agenda">Agenda</a>
-      <a href="#you">What changes for you</a>
+      <a href="#you">Your duties</a>
       <a href="#regs">The Regulations</a>
       <a href="#deadlines">Deadlines</a>
       <a href="#classify">Medicine lists</a>
       <a href="#global">Where Barbados fits</a>
       <a href="#routes">Registration</a>
       <a href="#process">Processes</a>
+      <a href="#faq">Stakeholder Q&amp;A</a>
       <a href="#points">Points for comment</a>
-      <a href="#ask">Ask</a>
+      <a href="#docs">Send a comment</a>
       <a href="#board">Follow-ups</a>
-      <a href="#contact">Contact</a>
+      <a href="#ask" class="only-menu">Ask the AI assistant</a>
+      <a href="#contact" class="only-menu">Contact</a>
     </nav>
+    <div class="hdr-cta">
+      <a class="btn btn-gold btn-sm" href="#ask">Ask AI</a>
+      <a class="btn btn-primary btn-sm hide-xs" href="#contact">Contact</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav"><span class="bars" aria-hidden="true"></span>Menu</button>
+    </div>
   </div>
 </header>
 
@@ -325,7 +394,8 @@ footer .brand{padding:6px 10px}
       <p class="lede">The Ministry of Health and Wellness, with technical support from PAHO, is completing the Regulations that put the Barbados Medical Products Act, 2026 into practice. This guide explains what the drafts require, who they affect and how to respond.</p>
       <div class="ctas">
         <a class="btn btn-primary" href="#you">See what changes for you</a>
-        <a class="btn btn-line" href="#ask">Ask a question</a>
+        <a class="btn btn-gold" href="#ask">Ask the AI assistant</a>
+        <a class="btn btn-line" href="#contact">Contact the team</a>
         <a class="btn btn-wa" id="heroWa" target="_blank" rel="noopener">WhatsApp Lindsay Bynoe</a>
       </div>
     </div>
@@ -537,6 +607,44 @@ footer .brand{padding:6px 10px}
     </div>
     <div class="chips" id="ptDoc" role="group" aria-label="Filter points" style="margin-bottom:14px"></div>
     <div class="pts" id="ptList"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="s" id="faq">
+  <div class="wrap">
+    <div class="s-head">
+      <p class="eyebrow">Stakeholder questions</p>
+      <h2>Questions already raised on the drafts, and the answers so far</h2>
+      <p>Questions sent in by suppliers, distributors and reviewers since the drafts were circulated. Each answer shows where it comes from. Many are still open and will be settled at the workshop or in the Guides.</p>
+    </div>
+    <div class="ex-tools">
+      <input id="fqQ" type="text" placeholder="Search questions, e.g. CPP, label, samples, bearer" aria-label="Search stakeholder questions" autocomplete="off">
+    </div>
+    <div class="chips" id="fqTopic" role="group" aria-label="Topic" style="margin-bottom:10px"></div>
+    <div class="chips" id="fqStatus" role="group" aria-label="Answer status" style="margin-bottom:18px"></div>
+    <div class="two">
+      <div id="fqList"></div>
+      <aside class="panel" style="display:grid;gap:10px;align-content:start">
+        <p class="eyebrow">About the Certificate of Pharmaceutical Product (CPP)</p>
+        <p>A CPP is issued by the regulator of the exporting country under the WHO Certification Scheme. It confirms the product is authorised there and made under GMP. The draft relies on it for the accelerated route (MPR 19, 22).</p>
+        <ul style="margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:6px;font-size:.95rem">
+          <li>The certifying country doesn't have to be where the finished product is made or exported from, provided GMP is declared.</li>
+          <li>Recipient regulators shouldn't normally require CPPs from more than one authority.</li>
+          <li>A separate GMP certificate isn't needed when the CPP includes a GMP declaration; inspection is a risk-based decision.</li>
+          <li>Legalisation of a CPP isn't part of the Scheme and adds no assurance.</li>
+          <li>Alternatives include approval letters from established regulators, EMA opinions, European Commission decisions and regulator website listings.</li>
+        </ul>
+        <p class="note">Source: WHO Certification Scheme Q&amp;A, WHO Drug Information Vol. 30 No. 3 (2016).</p>
+        <div class="legend" style="margin-top:6px">
+          <p class="eyebrow">Answer labels</p>
+          <p><span class="st st-nrar">Preliminary response</span> from the drafting team; subject to change.</p>
+          <p><span class="st st-ml">From the draft</span> what the draft text says.</p>
+          <p><span class="st st-wla">WHO guidance</span> from the WHO Certification Scheme Q&amp;A.</p>
+          <p><span class="st st-reg">Open</span> not settled; raise it at the workshop or in a comment.</p>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -757,7 +865,11 @@ footer .brand{padding:6px 10px}
 
 <a class="wa-float" id="floatWa" target="_blank" rel="noopener" aria-label="Follow up with Lindsay Bynoe on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
-  Follow up with Lindsay
+  <span>WhatsApp</span><span class="long">&nbsp;Lindsay</span>
+</a>
+<a class="fab" href="#ask" aria-label="Ask the AI assistant">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>
+  Ask AI
 </a>
 
 <script>
@@ -767,6 +879,16 @@ const $=(s,r=document)=>r.querySelector(s);
 const el=(tag,attrs={},...kids)=>{const n=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k==="class")n.className=v;else if(k==="text")n.textContent=v;else if(k.startsWith("on"))n.addEventListener(k.slice(2),v);else n.setAttribute(k,v)}for(const c of kids){if(c==null)continue;n.append(c.nodeType?c:String(c))}return n};
 const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const ref=t=>el("span",{class:"ref",text:t});
+
+/* menu */
+const nav=$("#nav"),menuBtn=$("#menuBtn");
+function setMenu(open){nav.classList.toggle("open",open);menuBtn.setAttribute("aria-expanded",String(open));menuBtn.lastChild.textContent=open?"Close":"Menu"}
+menuBtn.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
+nav.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false)});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open")){setMenu(false);menuBtn.focus()}});
+document.addEventListener("click",e=>{if(nav.classList.contains("open")&&!e.target.closest(".top"))setMenu(false)});
+/* keep anchored sections clear of the sticky header */
+document.documentElement.style.scrollPaddingTop="78px";
 
 /* contacts */
 const WA_NUM="12468324170",COMMENTS_EMAIL="BMPRA@barbados.gov.bb",LINDSAY_EMAIL="lindsay.bynoe@drugservice.gov.bb";
@@ -1142,6 +1264,11 @@ const POINTS=[
  ["MPR","Post-market","Guide names inconsistent","Vigilance guidelines appear under three different names (regs 56, 61, 75); reg. 94 cites a guide not in the Schedules; reg. 44's labelling guide name differs from Schedule 8.","regs 44, 56, 61, 75, 94"],
  ["MPR","Application and licensing","Undefined terms","“Practitioner”, “new drug”, “reminder advertisement”, “sponsor” and “dealers” are used but not defined; “manufacture” and “GMP” are defined twice.","regs 40, 78, 121, 131"],
  ["MPR","Post-market","Garbled or incomplete text","Regs 114 and 115(1) read awkwardly; reg. 151 is headed disposal but has no disposal power; reg. 164(2) still contains “[or Inspector]”.","regs 114–115, 151, 164"],
+ ["MPR","Application and licensing","“Country of origin” undefined for CPPs","Reg. 19(1)(a) asks for a CPP from the stringent authority “in the country of origin”. WHO guidance accepts CPPs from authorities other than the country of manufacture or export, provided GMP is assured.","regs 19(1)(a), 26(2)(d)"],
+ ["MPR","Application and licensing","No route for low-volume products outside emergencies","Exceptional access covers only emergencies and urgent public health need, so medicines too low-volume to register have no route for named patients.","regs 39–40"],
+ ["MPR","Post-market","Samples may be sold","Reg. 137(1) permits samples to be sold as well as supplied free, while 137(4) requires them to be labelled “Sample - Not for Sale”.","reg. 137"],
+ ["MPR","Post-market","No value set for “reasonably inexpensive” promotional aids","Reg. 138(2) allows inexpensive, practice-relevant aids without a monetary threshold.","regs 128(1)(d), 138"],
+ ["MPR","Establishment licensing","Re-export of imported products not addressed","Reg. 143 allows export without a Barbados authorisation only for Barbados-made, export-only products; re-export of imported goods, including special-access imports, isn't covered.","regs 143, 147"],
  ["CTR","Clinical trials","No decision timeline for first applications","Amendments are deemed approved after 30 days, but first applications have no decision period, no requirement for reasons and no review route.","regs 15, 20"],
  ["CTR","Clinical trials","Ethics committee structure differs from the Act","Act s.15(5) refers to a National Ethics Committee; the draft relies on site research ethics boards with no accreditation or review timelines.","regs 3, 14, 21"],
  ["CTR","Clinical trials","Ethics board membership may be hard to meet","Five members, a majority Barbados citizens or residents, with specified ethics, legal and community members, for each board.","reg. 3"],
@@ -1159,6 +1286,125 @@ function renderPts(){const listPts=MEDS.filter(m=>m.f).map(m=>["Lists","Classifi
  const docName={MPR:"Draft Medical Products Regulations",CTR:"Draft Clinical Trial Regulations",Lists:"POM / Pharmacy Only / General Sale lists"};
  $("#ptList").replaceChildren(...all.map(([d,topic,t,txt,r])=>el("div",{class:"pt"},el("div",{class:"meta"},ref(r),el("span",{text:topic})),el("h4",{text:t}),el("p",{text:txt}),el("div",{class:"act"},el("button",{type:"button",onclick:()=>prefill(docName[d],r,"Drafting or clarity",t+": "+txt)},"Use in comment")))))}
 renderPts();
+
+/* ---------- stakeholder FAQ ---------- */
+/* each: [topic, question, refs, [[status, text], ...]]  status: prelim | draft | who | open */
+const FAQS=[
+ ["Registration and CPP","Can products made in WHO-approved facilities be registered?","Act s.44–45 · MPR 16–22",[
+  ["prelim","Yes. The Authority can set out in the Guide to filing Marketing Authorisation Applications how it treats products from WHO-approved facilities, and which pathway applies."],
+  ["prelim","If the product is also approved by a listed stringent regulatory authority, it goes through the accelerated route (Act s.45; MPR 19, 22). A detailed dossier isn't needed, but quality information under MPR 22(b)(i) still is. The Guide could say that certification of manufacture at a WHO-approved facility is enough for that, unless more is needed in a particular case."],
+  ["prelim","If it isn't approved by a stringent authority, it goes through full review (Act s.44; MPR 16–18, 21) with a detailed dossier. The Guide could treat WHO-approved facility certification as sufficient for the quality information in that case too."]]],
+ ["Registration and CPP","Is a multi-country CPP acceptable, or must it be specific to Barbados?","MPR 19 · Interpretation Act s.36(2)",[
+  ["prelim","A multi-country CPP is acceptable. Under the Interpretation Act, the singular includes the plural. What matters is that the CPP covers the jurisdiction of the stringent authority being relied on."],
+  ["prelim","Where there is no stringent-authority approval, a CPP can still support GMP evidence but is not on its own presumed sufficient."],
+  ["who","WHO advises that recipient regulators shouldn't normally require CPPs from more than one certifying authority (Q&A 3.Q5)."]]],
+ ["Registration and CPP","Must the CPP come from the country where the finished product is manufactured?","MPR 19(1)(a), 26(2)(d)",[
+  ["draft","The draft asks for a CPP “from the issuing stringent regulatory authority in the country of origin”, and the Register records the country of origin where the product is exported from. “Country of origin” is not defined."],
+  ["who","WHO says no. CPPs may be issued by other authorities that can give independent GMP assurance, and the product needn't be exported from the certifying country (Q&A 3.A2–3.A4). Countries define the “source” differently: place of manufacture, final packing, final release or company headquarters."],
+  ["open","Stakeholders suggest defining “country of origin” and accepting the CPP from the earliest approving stringent authority."]]],
+ ["Registration and CPP","Does “or similar evidence” include a Free Sale Certificate?","MPR 19(1)(a)",[
+  ["draft","The draft accepts “similar evidence to establish the product's approval” by the stringent authority, without listing what counts."],
+  ["who","WHO lists alternatives to a CPP: approval letters or licences from well-established regulators, EMA scientific opinions, European Commission decisions, European public assessment reports and approvals shown on regulators' websites (Q&A 5.A1)."],
+  ["open","Whether a Free Sale Certificate qualifies is for the Guide to settle."]]],
+ ["Registration and CPP","Do I need a separate GMP certificate or a site inspection if I provide a CPP?","MPR 18(2)(b), 84",[
+  ["who","WHO says a separate GMP certificate isn't needed when the CPP includes a GMP declaration, and inspection should be a risk-based decision (Q&A 4.A1, 4.A4)."],
+  ["draft","The Authority may still inspect production sites during examination (MPR 18(2)(b)). Importers applying for an establishment licence must show each foreign manufacturer's GMP, and a stringent authority's GMP certificate or report may be accepted (MPR 84)."]]],
+ ["Registration and CPP","Can mock-up samples be accepted when Caribbean-labelled stock doesn't exist yet?","MPR 17, 18(2)(a)",[
+  ["draft","The Authority may ask for samples during examination and reject the application if they aren't provided by the date requested (MPR 18(2)(a), (3)). The draft doesn't say what form the samples must take."],
+  ["open","Suppliers ask whether finished product made for another market at the same site, with English mock-up labels, would be accepted for testing. Raise it for the Guide."]]],
+ ["Registration and CPP","What are the requirements for the API master file, restricted part, samples and working standards, templates and index?","MPR 17 · Schedule 5",[
+  ["draft","Dossier content will be set out in the Guide to filing Marketing Authorisation Applications (Schedule 5), which hasn't been published."],
+  ["open","The drafting team has asked for more detail before answering. Bring specifics to the workshop."]]],
+ ["Registration and CPP","Who is responsible for uploading an eCTD dossier?","MPR 16",[
+  ["prelim","Applications are filed in the form, manner and period the Authority specifies. The Authority will decide and publish guidance for applicants."],
+  ["open","eCTD and electronic submissions are a focus question at the 13:30 session."]]],
+ ["Registration and CPP","Can a product be registered with the same composition as the home market, and supplied from home-market stock?","Act s.46 · MPR 20, 23",[
+  ["prelim","The parallel-import route covers products identical or sufficiently similar to a product already registered in Barbados: same active ingredient, dosage form, strength, route and clinical properties, and bioequivalence for generics (Act s.46(2)–(3))."],
+  ["prelim","The draft doesn't allow approval based on equivalence to a product sold in another country but not in Barbados. If that isn't the intended policy, the Regulations can be adjusted. Otherwise use full review or the reliance route."]]],
+ ["Registration and CPP","How will “sufficiently similar to a Barbados Reference Product” be shown?","Act s.46(2) · MPR 20(1)(a)",[
+  ["draft","The application must show the drug is identical or sufficiently similar to the reference product and, where applicable, bioequivalent (MPR 20(1)(a))."],
+  ["open","What evidence is needed (CPP naming another importing country, artwork, GMP, certificate of analysis) isn't stated. The Guide should specify it."]]],
+ ["Registration and CPP","Who is the “marketing authorisation holder”: the product owner or the local agent?","MPR 3, 26(2)(b)",[
+  ["draft","The holder is the person granted registration under Act s.44, 45 or 46. A foreign holder must name a representative in Barbados, who is recorded in the Register (MPR 26(2)(b))."],
+  ["open","Reviewers suggest a separate term, such as “local marketing authorisation holder”, so the product owner named on the CPP is not confused with the local agent."]]],
+ ["Registration and CPP","Who is the manufacturer if the product is packed in a different country?","MPR 3",[
+  ["draft","“Manufacture” includes packaging, labelling, quality control, storage and release, so packing and release sites fall within it."],
+  ["open","Which of those sites is the “country of origin” isn't defined."]]],
+ ["Registration and CPP","Are terms and conditions the same as variations?","MPR 27, 30–31",[
+  ["draft","No. Terms and conditions are obligations the Authority attaches to an authorisation, such as risk management plans, reporting foreign safety actions, quality measures or confirmatory studies (MPR 27). Variations are handled as amendments for listed changes, or a new authorisation for fundamental changes (MPR 30–31; Schedule 7)."]]],
+ ["Fees and timelines","Will a new fee be due if the pack or box changes?","MPR 10, 30–31",[
+  ["draft","A change on the published amendment list needs an authorised amendment; a fundamental change needs a new authorisation. Fees will be in the Fee Schedule (MPR 10), which isn't published yet."],
+  ["open","Whether pack changes attract a fee depends on Schedule 7 and the Fee Schedule."]]],
+ ["Fees and timelines","Will the Authority commit to review timelines once fees are paid?","MPR 18, 28",[
+  ["draft","No review periods are stated for any application."],
+  ["who","WHO suggests that where a CPP is required, review should be a verification procedure with short, published timelines (Q&A 3.A1)."],
+  ["open","Reviewers ask the Authority to set itself timelines. Raise it under fees and transition."]]],
+ ["Fees and timelines","Will an applicant be told if its confidential information is disclosed?","MPR 6–7",[
+  ["draft","The Authority may disclose confidential business information without notice or consent to respond to a serious risk of injury to health, or for public-health purposes after a five-factor test."],
+  ["open","Reviewers suggest the applicant should be informed when disclosure happens."]]],
+ ["Labelling","Which registration number goes on the label: the source country's or Barbados'?","MPR 26(2)(a), 44(1)(a), 46(1)(a)",[
+  ["draft","The number assigned by the Authority on registration, which is recorded in the Register and on the certificate of registration."],
+  ["draft","Products not labelled to Barbados requirements may be relabelled within three months of import, after prior notice to the Authority (MPR 45)."],
+  ["open","How a change to a foreign authorisation number is handled, and whether a supplier's notice with the stringent authority's approval is enough, isn't stated. It may depend on Schedule 7 and the Labelling Guide."]]],
+ ["Labelling","Must labels show both the authorisation holder and the manufacturer?","MPR 46(1)(l)–(m), 49(1)(b)",[
+  ["draft","Yes, as drafted: drug labels need the name and address of the authorisation holder and manufacturer, and of the marketing authorisation holder if different. Device labels need both too."],
+  ["open","Suppliers note many labels carry only one, and the CPP already identifies both. They ask for “either/or”."]]],
+ ["Labelling","How will relabelling within three months be checked?","MPR 45, 83, 153",[
+  ["draft","The importer or holder must notify the Authority before import and name the relabeller. Re-labelling is a licensable activity (MPR 83), and inspectors may enter any place where regulated activity happens (MPR 153)."],
+  ["open","Whether the relabeller will be inspected before release isn't stated."]]],
+ ["Labelling","Can small device packages use a QR code for directions for use?","MPR 50(2)",[
+  ["draft","Where a package is too small, the directions for use must accompany the device but needn't be on the outside of the package."],
+  ["open","Electronic instructions or QR codes aren't mentioned. Raise it for the Labelling Guide."]]],
+ ["Prescription drugs","Does the bearer-note rule stop distributors selling tablets for patients to take home?","Act s.34 · MPR 51–55",[
+  ["draft","A bearer note is a practitioner's signed order to a distributor for a product to be delivered to the practitioner's office for use there. The bearer may not be the patient (MPR 52(b)). Supply of prescription medicines to patients for self-use stays with pharmacies on prescription (Act s.34)."],
+  ["open","Reviewers ask how this applies to very expensive products such as auto-injectors, and want the provision explained more clearly."]]],
+ ["Prescription drugs","Is ID needed from the bearer, and must a copy be kept?","MPR 52–55",[
+  ["draft","The draft doesn't require ID or record-keeping, and reg. 55 ends unfinished."],
+  ["open","Ask for this to be settled when reg. 55 is completed."]]],
+ ["Exceptional access","Can a practitioner use special access when a product isn't registered because Barbados volumes are too small?","MPR 39–40 · Act s.47",[
+  ["draft","Practitioner access (MPR 40) is limited to emergencies involving a serious or life-threatening condition. Importer access (MPR 39) is limited to urgent public health need."],
+  ["open","Routine low-volume products with no emergency aren't covered. Reviewers suggest a named-patient or low-volume route."]]],
+ ["Exceptional access","Can the practitioner name a licensed distributor to import the product?","MPR 39, 40(1)(a)",[
+  ["draft","The practitioner gives the Authority the name and address of the person the product is shipped to. Separately, licensed importers may apply for special authorisation (MPR 39)."],
+  ["open","Whether a named distributor can import on a practitioner's emergency authorisation isn't stated."]]],
+ ["Vigilance","Who can be the vigilance representative? Must it be a pharmacist?","MPR 56, 60",[
+  ["draft","The person must have the qualifications, knowledge and experience to lead the holder's vigilance activities, and acts as contact with the Authority. The draft doesn't require a pharmacist or a specific course."],
+  ["open","The Good Vigilance Practice Guidelines may set qualifications."]]],
+ ["Vigilance","Can the international supplier provide the pharmacovigilance plan, or a standard plan?","MPR 61",[
+  ["draft","The applicant or holder must prepare and maintain a safety specification and pharmacovigilance plan, in ICH or Barbados guideline format. A plan prepared by the product owner in ICH format fits the format requirement, but the holder remains responsible."],
+  ["open","Reviewers ask whether a standard plan can be used for routine products."]]],
+ ["Promotion and samples","Are branded pens and prescription pads banned as gifts?","MPR 128(1)(d), 138",[
+  ["draft","Gifts given to influence prescribing count as promotion (MPR 128(1)(d)), and inducements are prohibited (MPR 138(1)). Promotional aids are allowed if reasonably inexpensive and relevant to the recipient's practice (MPR 138(2))."],
+  ["open","“Reasonably inexpensive” has no value attached. Reviewers suggest setting one."]]],
+ ["Promotion and samples","Can samples be sold, and must they be specially produced?","MPR 137",[
+  ["draft","As drafted, samples may be sold or supplied free to practitioners and pharmacists entitled to prescribe or dispense them, with records kept. They must be labelled “Sample - Not for Sale”, come with the summary of product characteristics, and be the smallest registered pack."],
+  ["open","Reviewers say samples should never be sold, and that requiring specially labelled samples may cost more than using normal stock."]]],
+ ["Import and export","Why are import notices needed when the product is already registered?","MPR 142, 146",[
+  ["draft","Every import establishment must notify the Authority of each drug or device to be imported. Notices are valid for six months, and changes must be notified without delay."],
+  ["open","Importers propose submitting the packing list instead."]]],
+ ["Import and export","Do the export rules apply to re-exporting imported products?","MPR 143, 147",[
+  ["draft","A drug may not be exported without a Barbados marketing authorisation, GMP compliance and an export notice. The only exception is for products made in Barbados solely for export (MPR 143(2)). Devices also need a valid QMS certificate (MPR 147)."],
+  ["open","Re-export of imported products, including those brought in under special authorisation, isn't addressed."]]],
+ ["Medical devices","Where are the medical device rules and classification?","Act s.50 · MPR 17, 49–50, 103–113",[
+  ["draft","Devices need a marketing authorisation backed by an ISO 13485 quality system certificate, device labelling, incident reporting, and an establishment licence to import or distribute. The Act allows a risk-based approach relying on international regulators and IMDRF."],
+  ["open","Classification rules aren't in the draft yet."]]],
+ ["Medical devices","Can lubricating eye drops be registered as medical devices on an ISO 13485 certificate?","Act s.2 · MPR 17",[
+  ["open","The draft has no rules for deciding whether borderline products are drugs or devices. Raise it for the device classification guidance."]]],
+ ["Inspection","What can I do if I think an inspector is being unreasonable?","MPR 151, 155 · Act s.63",[
+  ["draft","Inspections end with a signed record listing deficiencies and deadlines (MPR 155). Suspensions generally need notice and a chance to be heard (MPR 33, 90). BMPA decisions can be appealed to the Medical Products Appeals Tribunal within 14 days (Act s.63)."],
+  ["open","No specific review route is given for an inspector's orders on storage or movement of seized goods (MPR 151)."]]]];
+const STATUS={prelim:["Preliminary response","st st-nrar"],draft:["From the draft","st st-ml"],who:["WHO guidance","st st-wla"],open:["Open","st st-reg"]};
+let fqTopic="All",fqStatus="all";
+["All",...new Set(FAQS.map(f=>f[0]))].forEach(t=>$("#fqTopic").append(el("button",{type:"button",class:"chip","aria-pressed":String(t==="All"),onclick:e=>{fqTopic=t;[...$("#fqTopic").children].forEach(b=>b.setAttribute("aria-pressed",String(b===e.currentTarget)));renderFaq()}},t)));
+[["all","Any answer"],["prelim","Has a preliminary response"],["open","Still open"]].forEach(([k,l])=>$("#fqStatus").append(el("button",{type:"button",class:"chip","aria-pressed":String(k==="all"),onclick:e=>{fqStatus=k;[...$("#fqStatus").children].forEach(b=>b.setAttribute("aria-pressed",String(b===e.currentTarget)));renderFaq()}},l)));
+function renderFaq(){const q=$("#fqQ").value.trim().toLowerCase();
+ const items=FAQS.filter(([t,qu,r,a])=>(fqTopic==="All"||t===fqTopic)&&(fqStatus==="all"||a.some(x=>x[0]===fqStatus))&&(!q||(qu+" "+r+" "+a.map(x=>x[1]).join(" ")).toLowerCase().includes(q)));
+ $("#fqList").replaceChildren(...(items.length?items.map(([t,qu,r,a])=>{const kinds=[...new Set(a.map(x=>x[0]))];
+  const d=el("details",{class:"fq"},el("summary",{},el("b",{},hl(qu,q)),el("div",{class:"tags"},ref(r),...kinds.map(k=>el("span",{class:STATUS[k][1],text:STATUS[k][0]})))),
+   el("div",{class:"body"},...a.map(([k,txt])=>el("div",{class:"ans "+k},el("span",{class:STATUS[k][1],style:"justify-self:start",text:STATUS[k][0]}),el("p",{},hl(txt,q)))),
+    el("div",{class:"actions"},kinds.includes("open")?el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>prefill("Draft Medical Products Regulations",r,"Operational or implementation concern",qu+" "+(a.filter(x=>x[0]==="open").map(x=>x[1]).join(" ")))},"Use in comment"):null,el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"Question on "+r+": "+qu),target:"_blank",rel:"noopener"},"Ask Lindsay"))));
+  if(q)d.open=true;return d}):[el("div",{class:"empty",text:"No questions match. Try another word, or ask the guide."})]))}
+$("#fqQ").addEventListener("input",renderFaq);renderFaq();
 
 /* ---------- comment builder ---------- */
 const cIds=["cDoc","cRef","cType","cText","cProp","cName","cOrg"];
@@ -1179,6 +1425,7 @@ const KB=["WORKSHOP: Consultation Workshop on the draft Barbados Medical Product
 ...Object.entries(ROLES).map(([k,a])=>"DUTIES – "+k+": "+a.map(x=>x[0]+" ("+x[1]+")").join(" ")),
 ...Object.entries(PROC).map(([k,p])=>"PROCESS – "+k+": "+p.s.map(s=>s[0]+" ("+s[2]+"): "+s[1]).join(" ")+" Notes: "+p.side.join(" ")),
 "WHO MATURITY LEVELS (Global Benchmarking Tool): "+ML.map(m=>m[0]+" – "+m[1]+": "+m[2]+(m[3]?" ("+m[3]+")":"")).join(" ")+" Purposes: standard global measure of regulator performance; identify gaps and strengths; guide Institutional Development Plans; support WHO Listed Authority designation. Nine benchmarked functions and where the drafts cover them: "+GBT.map(g=>g[0]+" – "+g[1]).join("; ")+". Reliance chain: "+CHAIN.map(c=>c[1]+": "+c[2]).join(" ")+" OTHER REGULATORS: "+REGULATORS.map(r=>r[1]+" ("+r[2]+"; "+r[3].join(", ")+"): "+r[4]).join(" | ")+" No authority in Latin America or the Caribbean is on WHO's ML3/ML4 list as at August 2026.",
+"STAKEHOLDER QUESTIONS AND ANSWERS (labels: preliminary response from the drafting team; from the draft; WHO guidance; open): "+FAQS.map(([t,qu,r,a])=>"Q ("+t+", "+r+"): "+qu+" A: "+a.map(x=>"["+STATUS[x[0]][0]+"] "+x[1]).join(" ")).join(" | ")+" WHO CPP guidance: CPP issued by exporting country's regulator under the WHO Certification Scheme; certifying country need not be the country of manufacture or export if GMP is declared; normally only one CPP should be required; no separate GMP certificate needed; legalisation not needed; alternatives include approval letters, EMA opinions, EC decisions, EPARs and regulator website listings.",
 "DEADLINES: "+EVENTS.map(e=>e[1]+" → "+e[4]+": "+e[3]+{d:" days",m:" months",y:" years"}[e[2]]+" ("+e[5]+")").join("; "),
 "POINTS FOR COMMENT: "+POINTS.map(p=>p[0]+" "+p[4]+" – "+p[2]+": "+p[3]).join(" | "),
 "CLASSIFICATION LISTS (draft): "+MEDS.map(m=>m.n+": "+m.t.map(t=>t[0]+" – "+t[1]).join("; ")+(m.x?" ("+m.x+")":"")+(m.f?" [possible issue: "+m.f+"]":"")).join(" | ")+" | New classes or molecular structures are POM until reclassified. P medicines kept where the public can't self-select. GSM sold outside pharmacies only when designated by product, ingredient, strength, form and pack size."].join("\n\n");
@@ -1198,6 +1445,9 @@ const FAQ=[
  [["penalt","fine","offence","offense"],"Under the drafts, offences carry up to $50,000 and/or two years, each day a separate offence (MPR 171, 175; CTR 50, 54). Act administrative penalties are $5,000, or $15,000 for unlicensed manufacturing."],
  [["appeal","tribunal"],"Appeal to the Medical Products Appeals Tribunal within 14 days (Act s.63), with suspension pending appeal (s.64)."],
  [["ai ","artificial"],"Applicants who used AI materially must describe the system, its use, what it produced and bias controls (MPR 8)."],
+ [["cpp","certificate of pharmaceutical","multi-country","free sale","country of origin"],"For the accelerated route the draft needs a CPP from a listed stringent authority, or similar evidence of approval (MPR 19). The drafting team's preliminary view is that a multi-country CPP is acceptable if it covers the jurisdiction relied on. WHO guidance says the CPP needn't come from the country of manufacture if GMP is declared. See “Stakeholder Q&A” on this page."],
+ [["sample","pens","gift","inexpensive"],"Samples go only to those entitled to prescribe or dispense, labelled “Sample - Not for Sale”, in the smallest registered pack, with records (MPR 137). Inducements are banned; inexpensive, practice-relevant aids are allowed, with no value set (MPR 138)."],
+ [["bearer"],"A bearer note is a practitioner's signed order to a licensed distributor for a product to be delivered to the practitioner's office; the bearer may not be the patient (MPR 51–55). Reg. 55 is unfinished and ID requirements aren't stated."],
  [["maturity","ml3","ml4","benchmark","gbt","listed authorit","wla"],"WHO's Global Benchmarking Tool rates regulators from ML1 (some elements exist) to ML4 (advanced, continuously improving). ML3 is a stable, well-functioning, integrated system, generally the level others can rely on; the BMPA is being built to it with PAHO support. See “Where Barbados fits” on this page."],
  [["fda","health canada","ema","india","asean","anvisa","carpha","pahO".toLowerCase(),"reliance"],"The BMPA can rely on trusted regulators (Act s.57; MPR 4, 19, 22): WHO Listed Authorities such as the US FDA, Health Canada and the EU network, PAHO's eight regional reference authorities, and CARPHA's Caribbean Regulatory System. See “Where Barbados fits”."],
  [["ectd","electronic"],"The drafts leave form and manner to the Authority (MPR 16). eCTD and electronic submissions are a focus question at the 13:30 session."]];
@@ -1210,7 +1460,7 @@ const log=$("#chatLog"),mode=$("#chatMode");let turns=[],sample=null,ctl=null,bu
 function bubble(role,text){const b=el("div",{class:"msg "+(role==="user"?"u":"a"),text});log.append(b);log.scrollTop=log.scrollHeight;return b}
 function addFollow(b,q){b.append(el("div",{class:"fu"},el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"My question: "+q),target:"_blank",rel:"noopener"},"Ask Lindsay"),el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>{$("#bQ").value=q;bRefresh();$("#board").scrollIntoView();setTimeout(()=>$("#bQ").focus({preventScroll:true}),500)}},"Post to board")))}
 bubble("a","Welcome. Ask about the Act, the two draft Regulations, the medicine lists or the 20 October workshop.");
-["What happens to products already on the market?","When must a Class I recall be completed?","How does the reliance route work?","What do pharmacies need to do?","What are the SUSAR deadlines for trials?","What is WHO Maturity Level 3?"].forEach(s=>$("#chatSugg").append(el("button",{type:"button",onclick:()=>askPreset(s)},s)));
+["What happens to products already on the market?","When must a Class I recall be completed?","How does the reliance route work?","What do pharmacies need to do?","What are the SUSAR deadlines for trials?","What is WHO Maturity Level 3?","Is a multi-country CPP acceptable?"].forEach(s=>$("#chatSugg").append(el("button",{type:"button",onclick:()=>askPreset(s)},s)));
 function askPreset(s){$("#chatIn").value=s;ask()}
 async function ask(){const q=$("#chatIn").value.trim();if(!q||busy)return;$("#chatIn").value="";bubble("user",q);
  if(!sample){const b=bubble("a",localAnswer(q));addFollow(b,q);return}
