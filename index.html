@@ -396,7 +396,7 @@ footer .brand{padding:6px 10px}
         <a class="btn btn-primary" href="#you">See what changes for you</a>
         <a class="btn btn-gold" href="#ask">Ask the AI assistant</a>
         <a class="btn btn-line" href="#contact">Contact the team</a>
-        <a class="btn btn-wa" id="heroWa" target="_blank" rel="noopener">WhatsApp Lindsay Bynoe</a>
+        <a class="btn btn-wa" id="heroWa" target="_blank" rel="noopener">Follow up with BMPA</a>
       </div>
     </div>
     <dl class="facts">
@@ -715,7 +715,7 @@ footer .brand{padding:6px 10px}
       <p class="eyebrow">Ask the guide</p>
       <h2>Questions about the Act, the drafts or the lists</h2>
       <p>The assistant answers from the Act, both draft Regulations, the medicine lists and the workshop details, with references. It is a guide, not legal advice.</p>
-      <p>If it can't answer, it points you to Mr Bynoe or the comments address, and you can post the question to the follow-up board.</p>
+      <p>If it can't answer, it points you to a BMPA follow-up on WhatsApp or the comments address, and you can post the question to the follow-up board.</p>
     </div>
     <div class="chat">
       <div class="chat-head"><b>Consultation guide</b><span class="mode" id="chatMode">Quick answers</span></div>
@@ -761,7 +761,7 @@ footer .brand{padding:6px 10px}
         <label for="bQ">Your question <textarea id="bQ"></textarea></label>
         <div class="actions">
           <button class="btn btn-primary" type="submit" id="bPost">Post question</button>
-          <a class="btn btn-wa btn-sm" id="bWa" target="_blank" rel="noopener">Send to Lindsay on WhatsApp</a>
+          <a class="btn btn-wa btn-sm" id="bWa" target="_blank" rel="noopener">Follow up with BMPA on WhatsApp</a>
         </div>
         <p class="note" id="bNote"></p>
       </form>
@@ -794,7 +794,7 @@ footer .brand{padding:6px 10px}
         <span>6th Floor, Warrens Towers II, Warrens, St Michael</span>
         <div class="copyline" style="margin-top:6px"><span>Office</span><code>+1 246 535 4335</code><span>Mobile / WhatsApp</span><code>+1 246 832 4170</code></div>
         <div class="copyline"><span>Email</span><code>lindsay.bynoe@drugservice.gov.bb</code></div>
-        <div style="margin-top:8px"><a class="btn btn-wa btn-sm" id="cardWa" target="_blank" rel="noopener">Message on WhatsApp</a></div>
+        <div style="margin-top:8px"><a class="btn btn-wa btn-sm" id="cardWa" target="_blank" rel="noopener">Follow up with BMPA on WhatsApp</a></div>
       </div>
       <div class="person">
         <b>Dr Maryam Karga Hinds</b>
@@ -863,9 +863,9 @@ footer .brand{padding:6px 10px}
   </div>
 </footer>
 
-<a class="wa-float" id="floatWa" target="_blank" rel="noopener" aria-label="Follow up with Lindsay Bynoe on WhatsApp">
+<a class="wa-float" id="floatWa" target="_blank" rel="noopener" aria-label="Follow up with BMPA on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
-  <span>WhatsApp</span><span class="long">&nbsp;Lindsay</span>
+  <span>Follow up</span><span class="long">&nbsp;with BMPA</span>
 </a>
 <a class="fab" href="#ask" aria-label="Ask the AI assistant">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>
@@ -894,7 +894,7 @@ document.documentElement.style.scrollPaddingTop="78px";
 const WA_NUM="12468324170",COMMENTS_EMAIL="BMPRA@barbados.gov.bb",LINDSAY_EMAIL="lindsay.bynoe@drugservice.gov.bb";
 const waLink=t=>"https://wa.me/"+WA_NUM+"?text="+encodeURIComponent(t);
 const mailLink=(to,s,b)=>"mailto:"+to+"?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent(b);
-const WA_DEFAULT="Good day Mr Bynoe, I am following up on the BMPA stakeholder consultation of 20 October 2026. ";
+const WA_DEFAULT="Good day, I am following up on the BMPA stakeholder consultation of 20 October 2026. ";
 ["heroWa","floatWa","cardWa"].forEach(id=>{$("#"+id).href=waLink(WA_DEFAULT)});
 async function copyText(t,target,okEl){try{await navigator.clipboard.writeText(t);if(okEl){okEl.hidden=false;setTimeout(()=>okEl.hidden=true,1800)}}catch(e){if(target){const r=document.createRange();r.selectNodeContents(target);const s=getSelection();s.removeAllRanges();s.addRange(r)}}}
 
@@ -1169,7 +1169,7 @@ const medQ=$("#medQ"),medRes=$("#medResults");
 function findMeds(q){q=q.trim().toLowerCase();if(!q)return[];const w=q.split(/\s+/);return MEDS.filter(m=>{const hay=(m.n+" "+m.k).toLowerCase();return w.every(x=>hay.includes(x))})}
 function renderMeds(){const q=medQ.value;const hits=findMeds(q);
  if(!q.trim()){medRes.replaceChildren(el("p",{class:"note",text:"Try one of the examples, or type any medicine."}));return}
- if(!hits.length){medRes.replaceChildren(el("div",{class:"med"},el("h4",{text:"Not found on the draft lists"}),el("p",{class:"muted",text:"Any medicine of a new class or molecular structure is Prescription Only until reclassified. Otherwise, ask the BMPA or raise it as a comment."}),el("div",{class:"actions",style:"margin-top:10px"},el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>prefill("POM / Pharmacy Only / General Sale lists",q,"Inconsistency between documents","“"+q+"” does not appear on the draft lists. Please confirm its intended classification.")},"Raise as a comment"),el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"Which draft category would "+q+" fall under?"),target:"_blank",rel:"noopener"},"Ask Lindsay"))));return}
+ if(!hits.length){medRes.replaceChildren(el("div",{class:"med"},el("h4",{text:"Not found on the draft lists"}),el("p",{class:"muted",text:"Any medicine of a new class or molecular structure is Prescription Only until reclassified. Otherwise, ask the BMPA or raise it as a comment."}),el("div",{class:"actions",style:"margin-top:10px"},el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>prefill("POM / Pharmacy Only / General Sale lists",q,"Inconsistency between documents","“"+q+"” does not appear on the draft lists. Please confirm its intended classification.")},"Raise as a comment"),el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"Which draft category would "+q+" fall under?"),target:"_blank",rel:"noopener"},"Follow up with BMPA"))));return}
  medRes.replaceChildren(...hits.slice(0,6).map(m=>{const c=el("div",{class:"med"},el("h4",{text:m.n}),...m.t.map(([k,r])=>el("div",{class:"tier"},el("span",{class:"badge "+CLS[k],text:k}),el("span",{text:r}))));
   if(m.x)c.append(el("p",{class:"note",style:"margin-top:6px",text:m.x}));
   if(m.f)c.append(el("div",{class:"flagnote"},el("span",{text:"Possible point for comment: "+m.f}),el("button",{type:"button",onclick:()=>prefill("POM / Pharmacy Only / General Sale lists",m.n,"Drafting or clarity",m.f)},"Use in comment")));return c}))}
@@ -1402,7 +1402,7 @@ function renderFaq(){const q=$("#fqQ").value.trim().toLowerCase();
  $("#fqList").replaceChildren(...(items.length?items.map(([t,qu,r,a])=>{const kinds=[...new Set(a.map(x=>x[0]))];
   const d=el("details",{class:"fq"},el("summary",{},el("b",{},hl(qu,q)),el("div",{class:"tags"},ref(r),...kinds.map(k=>el("span",{class:STATUS[k][1],text:STATUS[k][0]})))),
    el("div",{class:"body"},...a.map(([k,txt])=>el("div",{class:"ans "+k},el("span",{class:STATUS[k][1],style:"justify-self:start",text:STATUS[k][0]}),el("p",{},hl(txt,q)))),
-    el("div",{class:"actions"},kinds.includes("open")?el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>prefill("Draft Medical Products Regulations",r,"Operational or implementation concern",qu+" "+(a.filter(x=>x[0]==="open").map(x=>x[1]).join(" ")))},"Use in comment"):null,el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"Question on "+r+": "+qu),target:"_blank",rel:"noopener"},"Ask Lindsay"))));
+    el("div",{class:"actions"},kinds.includes("open")?el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>prefill("Draft Medical Products Regulations",r,"Operational or implementation concern",qu+" "+(a.filter(x=>x[0]==="open").map(x=>x[1]).join(" ")))},"Use in comment"):null,el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"Question on "+r+": "+qu),target:"_blank",rel:"noopener"},"Follow up with BMPA"))));
   if(q)d.open=true;return d}):[el("div",{class:"empty",text:"No questions match. Try another word, or ask the guide."})]))}
 $("#fqQ").addEventListener("input",renderFaq);renderFaq();
 
@@ -1411,7 +1411,7 @@ const cIds=["cDoc","cRef","cType","cText","cProp","cName","cOrg"];
 const cDraft=store.get("bmpa.comment",{});cIds.forEach(id=>{if(cDraft[id])$("#"+id).value=cDraft[id]});
 function buildComment(){const v=Object.fromEntries(cIds.map(id=>[id,$("#"+id).value.trim()]));store.set("bmpa.comment",v);
  const txt=["COMMENT ON: "+v.cDoc,v.cRef?"PROVISION / ITEM: "+v.cRef:null,"TYPE: "+v.cType,"","ISSUE:",v.cText||"[your comment]",v.cProp?"\nPROPOSED WORDING / SOLUTION:\n"+v.cProp:null,"","Submitted by: "+(v.cName||"[name]")+(v.cOrg?", "+v.cOrg:""),"BMPA stakeholder consultation, 20 October 2026"].filter(x=>x!==null).join("\n");
- $("#cOut").textContent=txt;$("#cMail").href=mailLink(COMMENTS_EMAIL,"Comment: "+v.cDoc+(v.cRef?" – "+v.cRef:""),txt);$("#cWa").href=waLink("Good day Mr Bynoe, a comment for the BMPA consultation:\n\n"+txt);return txt}
+ $("#cOut").textContent=txt;$("#cMail").href=mailLink(COMMENTS_EMAIL,"Comment: "+v.cDoc+(v.cRef?" – "+v.cRef:""),txt);$("#cWa").href=waLink("Good day, a comment for the BMPA consultation:\n\n"+txt);return txt}
 cIds.forEach(id=>$("#"+id).addEventListener("input",buildComment));
 $("#cCopy").addEventListener("click",()=>copyText(buildComment(),$("#cOut"),$("#cOk")));
 function prefill(doc,r,type,text){$("#cDoc").value=doc;$("#cRef").value=r;$("#cType").value=type;$("#cText").value=text;buildComment();$("#docs").scrollIntoView();setTimeout(()=>$("#cText").focus({preventScroll:true}),500)}
@@ -1454,11 +1454,11 @@ const FAQ=[
 function localAnswer(q){const ql=" "+q.toLowerCase()+" ";const w=ql.replace(/[^a-z0-9 \-]/g," ").split(/\s+/).filter(x=>x.length>3).find(x=>findMeds(x).length);
  if(w){const m=findMeds(w)[0];return m.n+" on the draft lists:\n"+m.t.map(t=>"• "+t[0]+": "+t[1]).join("\n")+(m.f?"\n\nPossible point for comment: "+m.f:"")}
  let best=null,sc=0;for(const[k,a]of FAQ){const s=k.filter(x=>ql.includes(x)).length;if(s>sc){sc=s;best=a}}
- return best||"That isn't covered in the material on this page. Ask Lindsay Bynoe on WhatsApp (+1 246 832 4170), email BMPRA@barbados.gov.bb, or post it on the follow-up board."}
-const RULES="You are the consultation guide on the website for the Barbados Medical Products Authority (BMPA) stakeholder consultation workshop. Visitors are pharmacists, clinicians, hospital staff, importers, wholesalers, manufacturers, researchers and the public.\n\nRules:\n- Answer ONLY from the FACTS below. Cite references as they appear, e.g. (MPR 118), (CTR 43), (Act s.45).\n- Use UK English, plainly and practically. Under 170 words unless asked for more. Short paragraphs or a few lines starting with '•'. No markdown headings or bold markers.\n- If the facts don't answer the question, say so and suggest WhatsApp to Lindsay Bynoe (+1 246 832 4170), email to BMPRA@barbados.gov.bb, or the follow-up board. Never invent fees, timelines, forms or clauses. The Schedules and Guides (including fees) are not yet published.\n- Where a known drafting issue is relevant, mention it as a point the visitor may wish to raise.\n- These are drafts for discussion; say this is general guidance, not legal advice, only when asked for a legal judgement.\n\nFACTS:\n"+KB;
+ return best||"That isn't covered in the material on this page. Follow up with the BMPA on WhatsApp (+1 246 832 4170), email BMPRA@barbados.gov.bb, or post it on the follow-up board."}
+const RULES="You are the consultation guide on the website for the Barbados Medical Products Authority (BMPA) stakeholder consultation workshop. Visitors are pharmacists, clinicians, hospital staff, importers, wholesalers, manufacturers, researchers and the public.\n\nRules:\n- Answer ONLY from the FACTS below. Cite references as they appear, e.g. (MPR 118), (CTR 43), (Act s.45).\n- Use UK English, plainly and practically. Under 170 words unless asked for more. Short paragraphs or a few lines starting with '•'. No markdown headings or bold markers.\n- If the facts don't answer the question, say so and suggest following up with the BMPA on WhatsApp (+1 246 832 4170), email to BMPRA@barbados.gov.bb, or the follow-up board. Never invent fees, timelines, forms or clauses. The Schedules and Guides (including fees) are not yet published.\n- Where a known drafting issue is relevant, mention it as a point the visitor may wish to raise.\n- These are drafts for discussion; say this is general guidance, not legal advice, only when asked for a legal judgement.\n\nFACTS:\n"+KB;
 const log=$("#chatLog"),mode=$("#chatMode");let turns=[],sample=null,ctl=null,busy=false;
 function bubble(role,text){const b=el("div",{class:"msg "+(role==="user"?"u":"a"),text});log.append(b);log.scrollTop=log.scrollHeight;return b}
-function addFollow(b,q){b.append(el("div",{class:"fu"},el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"My question: "+q),target:"_blank",rel:"noopener"},"Ask Lindsay"),el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>{$("#bQ").value=q;bRefresh();$("#board").scrollIntoView();setTimeout(()=>$("#bQ").focus({preventScroll:true}),500)}},"Post to board")))}
+function addFollow(b,q){b.append(el("div",{class:"fu"},el("a",{class:"btn btn-wa btn-sm",href:waLink(WA_DEFAULT+"My question: "+q),target:"_blank",rel:"noopener"},"Follow up with BMPA"),el("button",{class:"btn btn-line btn-sm",type:"button",onclick:()=>{$("#bQ").value=q;bRefresh();$("#board").scrollIntoView();setTimeout(()=>$("#bQ").focus({preventScroll:true}),500)}},"Post to board")))}
 bubble("a","Welcome. Ask about the Act, the two draft Regulations, the medicine lists or the 20 October workshop.");
 ["What happens to products already on the market?","When must a Class I recall be completed?","How does the reliance route work?","What do pharmacies need to do?","What are the SUSAR deadlines for trials?","What is WHO Maturity Level 3?","Is a multi-country CPP acceptable?"].forEach(s=>$("#chatSugg").append(el("button",{type:"button",onclick:()=>askPreset(s)},s)));
 function askPreset(s){$("#chatIn").value=s;ask()}
@@ -1470,7 +1470,7 @@ async function ask(){const q=$("#chatIn").value.trim();if(!q||busy)return;$("#ch
  catch(e){turns.pop();
   if(["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"].includes(e.code)){sample=null;mode.textContent="Quick answers";b.textContent=localAnswer(q);addFollow(b,q)}
   else if(e.code==="cancelled"){b.textContent=e.text?e.text+"\n\n(stopped)":"Stopped."}
-  else if(e.code==="refused"){b.textContent="I can't help with that one. Please ask Lindsay Bynoe or the BMPA directly.";addFollow(b,q)}
+  else if(e.code==="refused"){b.textContent="I can't help with that one. Please follow up with the BMPA directly.";addFollow(b,q)}
   else{b.textContent=(e.text?e.text+"\n\n(interrupted)\n\n":"")+localAnswer(q);addFollow(b,q)}}
  finally{busy=false;$("#chatSend").disabled=false;$("#chatStop").hidden=true}}
 $("#chatForm").addEventListener("submit",e=>{e.preventDefault();ask()});
@@ -1485,7 +1485,7 @@ kc.addEventListener("change",()=>{$("#kDial").value=kc.selectedOptions[0].datase
 /* ---------- contact + board links ---------- */
 const kIds=["kName","kEmail","kCompany","kSector","kCountry","kTopic","kPhone","kPref","kMsg"];
 const kVals=()=>Object.fromEntries(kIds.map(id=>[id,$("#"+id).value.trim()]));
-const kText=v=>"Good day Mr Bynoe,\n\n"+(v.kMsg||"[message]")+"\n\nTopic: "+v.kTopic+"\nName: "+(v.kName||"")+(v.kCompany?"\nOrganisation: "+v.kCompany:"")+(v.kSector?"\nSector: "+v.kSector:"")+"\nCountry: "+v.kCountry+(v.kPhone?"\nPhone: "+$("#kDial").value+" "+v.kPhone:"")+(v.kEmail?"\nEmail: "+v.kEmail:"")+"\nPreferred follow-up: "+v.kPref+"\n\n(Sent from the BMPA consultation guide)";
+const kText=v=>"Good day,\n\n"+(v.kMsg||"[message]")+"\n\nTopic: "+v.kTopic+"\nName: "+(v.kName||"")+(v.kCompany?"\nOrganisation: "+v.kCompany:"")+(v.kSector?"\nSector: "+v.kSector:"")+"\nCountry: "+v.kCountry+(v.kPhone?"\nPhone: "+$("#kDial").value+" "+v.kPhone:"")+(v.kEmail?"\nEmail: "+v.kEmail:"")+"\nPreferred follow-up: "+v.kPref+"\n\n(Sent from the BMPA consultation guide)";
 function kRefresh(){const v=kVals();$("#kWa").href=waLink(kText(v));$("#kMail").href=mailLink(LINDSAY_EMAIL,"BMPA consultation: "+v.kTopic,kText(v))}
 kIds.forEach(id=>$("#"+id).addEventListener("input",kRefresh));kRefresh();
 function bRefresh(){$("#bWa").href=waLink(WA_DEFAULT+"("+$("#bTopic").value+") "+$("#bQ").value.trim())}
@@ -1495,7 +1495,7 @@ function bRefresh(){$("#bWa").href=waLink(WA_DEFAULT+"("+$("#bTopic").value+") "
 const fmt=t=>{try{return new Date(t).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}catch(e){return""}};
 let db=null,uid=null,canEdit=false,posts=[];
 function renderBoard(){const f=$("#bFilter").value,list=$("#bList");
- if(!db){list.replaceChildren(el("div",{class:"empty"},"The shared board isn't available in this view. Send your question to Lindsay on WhatsApp, or email BMPRA@barbados.gov.bb."));return}
+ if(!db){list.replaceChildren(el("div",{class:"empty"},"The shared board isn't available in this view. Follow up with the BMPA on WhatsApp, or email BMPRA@barbados.gov.bb."));return}
  let items=posts.slice().sort((a,b)=>(b.at||"").localeCompare(a.at||""));if(f==="open")items=items.filter(p=>!p.answer);if(f==="answered")items=items.filter(p=>p.answer);
  if(!items.length){list.replaceChildren(el("div",{class:"empty"},f==="all"?"No follow-ups yet. Questions posted here appear with the organisers' answers.":"Nothing in this view."));return}
  list.replaceChildren(...items.map(p=>{const c=el("div",{class:"post"},el("div",{class:"meta"},el("b",{text:p.name||"Anonymous"}),p.org?el("span",{text:p.org}):null,ref(p.topic||"General"),el("span",{text:fmt(p.at)}),p.answer?null:el("span",{class:"pend",text:"Awaiting answer"})),el("p",{text:p.q}));
@@ -1505,16 +1505,16 @@ function renderBoard(){const f=$("#bFilter").value,list=$("#bList");
 $("#bFilter").addEventListener("change",renderBoard);
 async function answerPost(p,ans){try{const r=db.doc("followups/"+p.owner);const s=await r.get();if(!s.exists)return;const d=structuredClone(s.data());d.items=(d.items||[]).map(it=>it.id===p.id?{...it,answer:ans,answeredAt:new Date().toISOString()}:it);await r.set(d)}catch(e){$("#bNote").textContent="Could not save the answer: "+(e.message||e.code)}}
 $("#bForm").addEventListener("submit",async e=>{e.preventDefault();const q=$("#bQ").value.trim(),note=$("#bNote");if(!q){note.textContent="Write your question first.";$("#bQ").focus();return}
- if(!db||!uid){note.textContent="Posting isn't available in this view. Use the WhatsApp button to send it to Lindsay.";return}
+ if(!db||!uid){note.textContent="Posting isn't available in this view. Use the “Follow up with BMPA” WhatsApp button instead.";return}
  $("#bPost").disabled=true;
  try{const r=db.doc("followups/"+uid);const s=await r.get();const d=s.exists?structuredClone(s.data()):{items:[]};d.name=$("#bName").value.trim();d.org=$("#bOrg").value.trim();d.items=(d.items||[]).concat({id:Date.now().toString(36),q,topic:$("#bTopic").value,at:new Date().toISOString()}).slice(-40);await r.set(d);$("#bQ").value="";note.textContent="Posted. The organisers will answer here.";bRefresh()}
- catch(err){note.textContent=err.code==="invalid_argument"?"You can read the board but not post to it. Send your question to Lindsay on WhatsApp instead.":"Could not post right now. Use WhatsApp or email instead."}
+ catch(err){note.textContent=err.code==="invalid_argument"?"You can read the board but not post to it. Follow up with the BMPA on WhatsApp instead.":"Could not post right now. Use WhatsApp or email instead."}
  finally{$("#bPost").disabled=false}});
 $("#kForm").addEventListener("submit",async e=>{e.preventDefault();const v=kVals(),note=$("#kNote");const miss=["kName","kEmail","kSector","kMsg"].filter(id=>!v[id]);
  if(miss.length){note.textContent="Please fill in your name, email, sector and message.";$("#"+miss[0]).focus();return}
  if(!/^\S+@\S+\.\S+$/.test(v.kEmail)){note.textContent="Check the email address: it should look like name@example.com.";$("#kEmail").focus();return}
  if(db&&uid){try{const r=db.doc("inbox/"+uid);const s=await r.get();const d=s.exists?structuredClone(s.data()):{messages:[]};d.messages=(d.messages||[]).concat({...v,dial:$("#kDial").value,at:new Date().toISOString()}).slice(-20);await r.set(d);note.textContent="Message saved for the organisers. For a faster reply, also send it on WhatsApp.";return}catch(err){}}
- note.textContent="Use “Send on WhatsApp” or “Open in email” to deliver your message to Lindsay Bynoe."});
+ note.textContent="Use “Send on WhatsApp” or “Open in email” to deliver your message to the BMPA."});
 function renderInbox(snap){const items=[];snap.docs.forEach(d=>(d.data().messages||[]).forEach(m=>items.push(m)));items.sort((a,b)=>(b.at||"").localeCompare(a.at||""));
  $("#inbox").replaceChildren(...(items.length?items.map(m=>el("div",{class:"inbox-item"},el("div",{},el("b",{text:m.kName}),el("span",{class:"muted",text:" · "+(m.kCompany||"")+" · "+(m.kSector||"")+" · "+fmt(m.at)})),el("span",{},ref(m.kTopic)),el("p",{text:m.kMsg}),el("p",{class:"note",text:m.kEmail+(m.kPhone?" · "+m.dial+" "+m.kPhone:"")+" · prefers "+m.kPref}))):[el("div",{class:"empty",text:"No messages yet."})]))}
 (async()=>{
